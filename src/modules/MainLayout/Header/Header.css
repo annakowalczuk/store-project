@@ -1,0 +1,13 @@
+/* temporary styles  */
+
+a, a:visited {
+  color: black;
+}
+
+a.active {
+  color: #48abee
+}
+
+nav a {
+  margin-right: 5px;
+}
