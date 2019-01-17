@@ -1,0 +1,15 @@
+.cart-icon-container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 43px;
+  max-width: 28px;
+
+  .cart-icon {
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media (min-width: 992px) {
+    margin-right: 0;
+  }
+}

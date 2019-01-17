@@ -1,0 +1,13 @@
+.logo-container {
+  max-width: 348px;
+  padding-top: 48px;
+  margin-left: 0;
+  margin-right: auto;
+  .logotyp {
+    max-width: 100%;
+    height: auto;
+  }
+  @media (max-width: 991.98px) {
+    margin-left: auto;
+  }
+}

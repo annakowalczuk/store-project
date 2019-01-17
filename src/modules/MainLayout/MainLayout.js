@@ -6,7 +6,7 @@ import { Footer } from './Footer';
 export class MainLayout extends React.Component {
   render() {
     return (
-      <div className='container'>
+      <div>
         <Header />
         {this.props.children}
         <Footer />
