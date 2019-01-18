@@ -1,13 +1,27 @@
 @import '../../../_variables';
 
-.topnav-nav{
-  margin-top: 52px;
+.section--topnav .container .row {
   display: flex;
-  justify-content: flex-end;
+  align-items: flex-end;
+  height: 91px;
+}
+
+.topnav-nav {
   @media (max-width: 991.98px) {
-    flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
+    order: 5;
+    display: flex;
+    justify-content: center;
+  }
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    @media (max-width: 991.98px) {
+      flex-direction: column;
+      // margin-left: auto;
+      // margin-right: auto;
+    }
   }
 }
 
