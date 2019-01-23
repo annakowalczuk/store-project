@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 // import './App.css';
-
+import { connect } from 'react-redux';
 
 import { Contact } from '../Contact';
 import { Faq } from '../Faq';
@@ -10,8 +10,14 @@ import { MainLayout } from '../MainLayout';
 import { NoMatch } from '../NoMatch';
 import { Products } from '../Products';
 import { Terms } from '../Terms';
+import { fetchProducts } from '../Product/ProductActions.js';
+
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchProducts();
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -30,4 +36,14 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return state;
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchProducts: () => dispatch(fetchProducts()),
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

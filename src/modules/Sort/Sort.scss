@@ -1,0 +1,29 @@
+@import '../../_variables';
+
+.sort-header {
+  font-size: 1.375em;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #000000;
+  padding-bottom: 20px;
+}
+
+.sort-list {
+  font-size: 1em;
+  letter-spacing: 0.0625em;
+  line-height: 2em;
+  font-weight: 300;
+  color: $color-brand-gray-dark;
+  ul {
+    padding: 0;
+  }
+  &::after {
+    content: '';
+    display: inline-block;
+    max-width: 270px;
+    width: 100%;
+    overflow: hidden;
+    height: 1px;
+    background-color: $color-brand-gray;
+  }
+}

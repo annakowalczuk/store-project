@@ -1,0 +1,37 @@
+@import '../../_variables';
+
+@mixin product-box-header {
+  font-size: 1.125em;
+  letter-spacing: 0.0625em;
+  line-height: 1.6875;
+  padding: 31px;
+}
+
+.product-box {
+  height: 502px;
+  margin-bottom: 30px;
+  background-color: $color-brand-gray-light;  
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  .top-info {
+    @include product-box-header;
+  }
+
+  .photo-product {
+    height: 268px;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .bottom-info {
+    @include product-box-header;
+  }
+
+  .product-price {
+    color: $color-brand-gray-dark;
+  }
+}

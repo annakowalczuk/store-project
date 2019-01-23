@@ -1,0 +1,32 @@
+@import '../../../_variables';
+
+.section--footer .container .row {
+  display: flex;
+  align-items: center;
+  height: 116px;
+  
+  .bottom-menu {
+    display: flex;
+    justify-content: flex-end;
+
+    nav a {
+      text-transform:uppercase;
+      text-decoration: none;
+      font-size: 1em;
+      line-height: 1.625;
+      padding-left: 20px;
+      padding-right: 20px;
+      color: #000;
+      &:visited {
+        color: #000;
+      }
+      &:hover {
+        color: $color-brand-gray;
+      }
+    }
+  }
+
+  .rights-info {
+    color: $color-brand-gray;
+  }
+}
