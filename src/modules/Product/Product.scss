@@ -28,9 +28,11 @@
 
   .photo-product {
     height: 268px;
-    width: 100%;
+    max-width: 100%;
+    margin: 0 30px;
     background-position: center;
     background-repeat: no-repeat;
+    background-size: contain;
   }
 
   .bottom-info {
