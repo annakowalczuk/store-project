@@ -18,6 +18,12 @@
   
   .top-info {
     @include product-box-header;
+    display: flex;
+    justify-content: space-between;
+
+    .fa-heart {
+      visibility:hidden
+    }
   }
 
   .photo-product {
@@ -29,9 +35,37 @@
 
   .bottom-info {
     @include product-box-header;
+    display: flex;
+    justify-content: space-between;
+
+    .product-price {
+      color: $color-brand-gray-dark;
+    }
+
+    .addToCart {
+      visibility:hidden;
+      text-align: center;
+      & > span {
+        display: block;
+      }
+    }
   }
 
-  .product-price {
-    color: $color-brand-gray-dark;
+  &.active {
+    .fa-heart {
+      visibility: visible;
+    }
+
+    .addToCart {
+      visibility: visible;
+    }
+
+    i {
+      &:hover {
+        transition-duration: 0.3s;
+        font-size: 110%;
+        cursor: pointer;
+      }
+    }
   }
 }

@@ -1,5 +1,13 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+@import "assets/fontawesome/fontawesome";
+@import "assets/fontawesome/solid";
+@import "assets/fontawesome/brands";
+@import "assets/fontawesome/regular";
+
+@import '_variables';
 
 body {
   margin: 0;

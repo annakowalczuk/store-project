@@ -1,3 +1,5 @@
+@import '../../../../_variables';
+
 .cart-icon-container {
   margin-left: auto;
   margin-right: auto;
@@ -5,13 +7,11 @@
   padding-bottom: 20px;
   max-width: 28px;
 
-  .cart-icon {
-    max-width: 100%;
-    height: auto;
+  .fa-shopping-cart {
+    font-size: 1.75em;
     &:hover {
-      // TODO: replace png with icon or add svg
-      // transform: scale(1.025); 
-      // transition-duration: 0.3s;
+      transition-duration: 0.3s;
+      font-size: 1.8125em;
       cursor: pointer;
     }
   }
