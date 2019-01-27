@@ -16,6 +16,10 @@
   color: $color-brand-gray-dark;
   ul {
     padding: 0;
+    &:hover {
+      cursor: pointer;
+      color: #000000;
+    }
   }
   &::after {
     content: '';

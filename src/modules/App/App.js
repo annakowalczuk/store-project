@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import { Contact } from '../Contact';
 import { Faq } from '../Faq';
-import { Home } from '../Home';
+import Home from '../Home';
 import { MainLayout } from '../MainLayout';
 import { NoMatch } from '../NoMatch';
 import { Products } from '../Products';
