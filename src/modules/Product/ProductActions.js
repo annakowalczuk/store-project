@@ -3,6 +3,8 @@ import data from '../../data/products.json';
 // Export Constants
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
+export const SORT_BY_NAME_ASC = 'SORT_BY_NAME_ASC';
+export const SORT_BY_PRICE = 'SORT_BY_PRICE';
 
 // Export Actions
 export const getProducts = (productsData) => {
@@ -10,6 +12,27 @@ export const getProducts = (productsData) => {
     type: GET_PRODUCTS,
     productsData,
   };
+}
+
+export const sortByNameAsc = (key, order) => {
+  return {
+    type: SORT_BY_NAME_ASC,
+    key,
+    order,
+  };
+}
+
+export const sortByPrice = (key, order) => {
+  return {
+    type: SORT_BY_PRICE,
+    key,
+    order,
+  };
+}
+
+export const sortBy = (key, order) => {
+  return dispatch =>
+    key === 'price' ? dispatch(sortByPrice(key, order)) : dispatch(sortByNameAsc(key, order))
 }
 
 export const fetchProducts = () => {
@@ -28,15 +51,9 @@ export const fetchProducts = () => {
 // export const fetchProducts = () => {
 //   return dispatch => {
 //     fetch('/products.json')
-//     .then(response => {
-//       response = response.json();
-//       return response;
-//     })
-//     .then(response => {console.log(response);})
-//     .then(data => {
-//       // console.log(data);
-//       dispatch(getProducts(data.products));
-//     }).catch(err => {
+//     .then(response => response.json())
+//     .then(data => dispatch(getProducts(data.products)))
+//     .catch(err => {
 //       console.log(err);
 //     });
 //   };

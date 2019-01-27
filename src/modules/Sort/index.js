@@ -1,1 +1,1 @@
-export { Sort } from './Sort.js';
+export { default } from './Sort.js';

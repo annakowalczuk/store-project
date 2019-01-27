@@ -3,7 +3,8 @@ import { Products } from './Products';
 
 const mapStateToProps = (state) => {
   return {
-    products: Object.values(state.products),
+    products: state.products.productsList,
+    direction: state.products.direction,
   };
 };
 
