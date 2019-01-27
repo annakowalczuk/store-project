@@ -16,7 +16,7 @@ export default function products(state = initialState, action) {
     case SORT_BY_NAME_ASC: 
       return {
         productsList: state.productsList.sort((a, b) => {
-          if (state.direction[action.order] === "asc") {
+          if (action.order === "asc") {
             let x = a[action.key].toLowerCase();
             let y = b[action.key].toLowerCase();
             return x < y ? -1 : x > y ? 1 : 0;
@@ -28,19 +28,21 @@ export default function products(state = initialState, action) {
         }
       ),
         direction: {
-          [action.key]: state.direction[action.key] === "asc" ? "desc" : "asc"
+          ...state.direction,
+          [action.key]: action.order,
         }
       };
 
     case SORT_BY_PRICE: 
       return {
         productsList: state.productsList.sort((a, b) =>
-        state.direction[action.key] === "asc"
+        action.order === "asc"
           ? parseFloat(a[action.key]) - parseFloat(b[action.key])
           : parseFloat(b[action.key]) - parseFloat(a[action.key])
         ),
         direction: {
-          [action.key]: state.direction[action.key] === "asc" ? "desc" : "asc"
+          ...state.direction,
+          [action.key]: action.order,
         }
       };
 
