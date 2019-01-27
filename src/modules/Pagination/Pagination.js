@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { goToPage } from '../Product/ProductActions';
 
 import { Container, Row, Col } from 'reactstrap';
+import './Pagination.scss';
 
 
 const Pagination = (props) => {
@@ -11,17 +12,13 @@ const Pagination = (props) => {
   for (let i = 1; i <= Math.ceil(props.products.length / productsPerPage); i++) {
     pageNumbers.push(i);
   }
-
-  // const fetchPageNumbers = () => {
-
-  // }
   
   const handleClick = (e) => {
     props.goToPage(e.target.id);
   }
 
   return (
-    <div>
+    <div className='product-pagination' >
       <Container>
         <Row>
           <Col lg='6'></Col>
