@@ -1,0 +1,71 @@
+@import '../../_variables';
+
+@mixin product-page-header {
+  letter-spacing: 1px;
+  line-height: 1.6875;
+  font-weight: 400;
+}
+
+.section--product-page {
+  background-color: #fff;
+  padding: 81px 0;
+
+  .product-page-image-wrapper {
+    height: 350px;
+    max-width: 100%;
+    background-color: $color-brand-gray-light;
+    padding: 30px;
+
+    .product-page-image {
+      height: 268px;
+      max-width: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-color: $color-brand-gray-light;
+    }
+  }
+
+  .product-page-details {
+    
+    &-name {
+      font-size: 1.5em;
+      @include product-page-header;
+      text-transform: capitalize;
+    }
+
+    &-price {
+      font-size: 1.125em;
+      @include product-page-header;
+      color: $color-brand-gray-dark;
+    }
+
+    &-description {
+      font-size: 1.125em;
+      letter-spacing: 1px;
+      line-height: 1.6875;
+      color: #000000;
+    }
+  }
+
+  .button-add-to-cart {
+    height: 47px;
+    background-color: #000000;
+    color: #fff;
+    font-size: 1.25em;
+    letter-spacing: 1px;
+    line-height: 1.6875;
+    padding: 0 50px;
+    @media (max-width: 374.98px) {
+      padding: 0 30px;
+    }
+
+    &:hover {
+      cursor: pointer; 
+      background-color: #fff;
+      border-color: #000;
+      color: #000;
+      transition-duration: 0.3s;
+    }
+  }
+}

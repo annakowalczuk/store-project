@@ -40,6 +40,10 @@
     display: flex;
     justify-content: space-between;
 
+    .product-name {
+      text-transform: capitalize;
+    }
+
     .product-price {
       color: $color-brand-gray-dark;
     }

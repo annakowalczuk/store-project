@@ -8,8 +8,9 @@ import { Faq } from '../Faq';
 import Home from '../Home';
 import { MainLayout } from '../MainLayout';
 import { NoMatch } from '../NoMatch';
-import { Products } from '../Products';
 import { Terms } from '../Terms';
+import ProductPage from '../ProductPage/ProductPageContainer';
+import Cart from '../Cart';
 import { fetchProducts } from '../Product/ProductActions.js';
 
 
@@ -25,8 +26,9 @@ class App extends Component {
             <Route exact path={'/'} component={Home} />
             <Route exact path={'/contact'} component={Contact} />
             <Route exact path={'/faq'} component={Faq} />
-            <Route exact path={'/products'} component={Products} />
             <Route exact path={'/terms'} component={Terms} />
+            <Route exact path={'/cart'} component={Cart} />
+            <Route exact path={'/productpage/:id'} component={ProductPage} />
             <Route component={NoMatch} />
           </Switch>
         </MainLayout>
@@ -42,7 +44,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchProducts: () => dispatch(fetchProducts()),
-  }
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

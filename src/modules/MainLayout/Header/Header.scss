@@ -3,7 +3,7 @@
 .section--topnav .container .row {
   display: flex;
   align-items: flex-end;
-  height: 91px;
+  min-height: 91px;
 }
 
 .topnav-nav {
@@ -19,8 +19,6 @@
     padding-bottom: 20px;
     @media (max-width: 991.98px) {
       flex-direction: column;
-      // margin-left: auto;
-      // margin-right: auto;
     }
   }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import './Product.scss';
 
 class Product extends Component {
@@ -43,8 +44,12 @@ class Product extends Component {
               <i className="far fa-heart"></i>
             </div>
           </div>
-          <div className='photo-product' style={{ backgroundImage: `url(${imgUrl})` }} >
-          </div>
+
+          <Link to={`/productpage/${product._id}`} >
+            <div className='photo-product' style={{ backgroundImage: `url(${imgUrl})` }} >
+            </div>
+          </Link>
+
           <div className='bottom-info'>
             <div>
               <div className='product-name' >{product.name}</div>
