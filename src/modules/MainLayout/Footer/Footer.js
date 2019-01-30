@@ -9,10 +9,10 @@ export const Footer = props => {
     <div className='section--footer'>
       <Container>
         <Row>
-          <Col md='12' lg='5' className='rights-info'>
+          <Col xs='12' md='5' className='rights-info'>
             <div>All rights reserved</div>
           </Col>
-          <Col md='12' lg='7' className='bottom-menu'>
+          <Col xs='12' md='7' className='bottom-menu'>
             <nav>
               <NavLink exact to='/' activeClassName='active'>Home</NavLink>
               <NavLink exact to='/faq' activeClassName='active'>FAQ</NavLink>
