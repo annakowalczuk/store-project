@@ -1,9 +1,20 @@
+@import '../../_variables';
+@import '../../utils/_button';
+
+.section--cart {
+  padding-top: 78px;
+}
+
 .cart-header > h2 {
   font-size: 1.75em;
   letter-spacing: 2px;
   line-height: 1.6875;
   font-weight: 400;
   color: #000;
+}
+
+.cart-empty {
+  padding: 30px;
 }
 
 .cart-photo-product {
@@ -13,4 +24,60 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.cart-checkout-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+
+  .discount-code {
+    background-color: $color-brand-gray-light;
+    color: $color-brand-gray;
+    max-width: 144px;
+    height: 51px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 24px;
+    margin-left: auto;
+
+    input {
+      line-height: 49px;
+      width: 100%;
+      color: inherit;
+      background-color: inherit;
+      border: none;
+      text-align: center;
+      outline: none;
+    }
+  }
+
+  .total-price {
+    font-size: 1.125em;
+    letter-spacing: 1px;
+    line-height: 1.6875;
+    color: #000;
+
+    h6 {
+      font-size: inherit;
+      font-weight: 400;
+      display: inline-block;
+      text-transform: uppercase;
+    }
+    p {
+      display: inline-block;
+    }
+  }
+}
+
+.button-checkout {
+  @include button-brand;
+  width: 100%;
+  &.disabled {
+    background-color: $color-brand-gray-light;
+    border-color: $color-brand-gray-light;
+    color: $color-brand-gray;
+    cursor: initial;
+  }
 }

@@ -55,7 +55,7 @@ class Product extends Component {
               <div className='product-name' >{product.name}</div>
               <div className='product-price' >${product.price}</div>
             </div>
-            <div className='addToCart'>
+            <div className='addToCart' onClick={() => this.props.addToCart(product._id)} >
               <span>Add to cart</span>
               <i className="fas fa-cart-plus"></i>
             </div>

@@ -11,7 +11,7 @@ export const Cart = (props) => {
     return (
       <Row>
         <Col lg='12'>
-          <p>Your cart is empty.</p>
+          <p className='cart-empty' >Your cart is empty.</p>
         </Col>
       </Row>
     );
@@ -27,28 +27,29 @@ export const Cart = (props) => {
         const imgUrl = `/images/${addedItem.index}.jpg`;
 
         return (
-        <Row key={id} >
-          <Col lg='2'>
-            <div className='cart-photo-product' style={{ backgroundImage: `url(${imgUrl})` }} >
-            </div>
-          </Col>
-          <Col lg='7'>
-            <h4>{addedItem.name}</h4>
-            <p>{addedItem.description}</p>
-          </Col>
-          <Col lg='1'>
-            <p>{addedItem.price}</p>
-          </Col>
-          <Col lg='2'>
-            <div onClick={() => props.removeItemFromCart(id)} >-</div>
-            <div>{props.cart[id]}</div>
-            <div onClick={() => props.addToCart(id)} >+</div>
-            <div>szt</div>
-            <div onClick={() => props.removeProductFromCart(id) } >usuń produkt</div>
-          </Col>
-        </Row>
-      );}
-      )}
+          <Row key={id} >
+            <Col lg='2'>
+              <div className='cart-photo-product' style={{ backgroundImage: `url(${imgUrl})` }} >
+              </div>
+            </Col>
+            <Col lg='7'>
+              <h4>{addedItem.name}</h4>
+              <p>{addedItem.description}</p>
+            </Col>
+            <Col lg='1'>
+              <p>{addedItem.price}</p>
+            </Col>
+            <Col lg='2'>
+              <div onClick={() => props.removeItemFromCart(id)} >-</div>
+              <div>{props.cart[id]}</div>
+              <div onClick={() => props.addToCart(id)} >+</div>
+              <div>szt</div>
+              <div onClick={() => props.removeProductFromCart(id) } >usuń produkt</div>
+            </Col>
+          </Row>
+          );
+        })
+      }
       </div>
     );
   }
@@ -75,16 +76,24 @@ export const Cart = (props) => {
         </Row>
         { isEmpty(props.cart) ? renderCartIsEmpty() : renderAddedItems() }
 
-        <Row>
-          <Col lg='4'>
-            <p>kod rabatowy</p>
+        <Row className='cart-checkout-menu'>
+          <Col lg='3'>
+            <div className='discount-code'>
+              <input type="text"
+                autoFocus
+                defaultValue='kod rabatowy' 
+              />
+            </div>
           </Col>
-          <Col lg='4'>
-            <h6>Total</h6>
+          <Col lg='3' className='total-price'>
+            <h6>Total: </h6>
             {renderTotalPrice()}
           </Col>
-          <Col lg='4'>
-            <h2 onClick={() => props.checkoutRequest()} >Zapłać</h2>
+          <Col lg='3'>
+            <button 
+              className={`button-checkout${isEmpty(props.cart) ? ' disabled' : ''}`}
+              onClick={() => isEmpty(props.cart) ? null : props.checkoutRequest()} 
+            >Zapłać</button>
           </Col>
         </Row>
       </Container>

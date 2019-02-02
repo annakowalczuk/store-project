@@ -1,4 +1,5 @@
 @import '../../_variables';
+@import '../../utils/_button';
 
 @mixin product-page-header {
   letter-spacing: 1px;
@@ -49,24 +50,6 @@
   }
 
   .button-add-to-cart {
-    height: 47px;
-    background-color: #000000;
-    border-color: #000;
-    color: #fff;
-    font-size: 1.25em;
-    letter-spacing: 1px;
-    line-height: 1.6875;
-    padding: 0 50px;
-    @media (max-width: 374.98px) {
-      padding: 0 30px;
-    }
-
-    &:hover {
-      cursor: pointer; 
-      background-color: #fff;
-      border-color: #000;
-      color: #000;
-      transition-duration: 0.3s;
-    }
+    @include button-brand;
   }
 }

@@ -64,6 +64,9 @@
 
     .addToCart {
       visibility: visible;
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     i {

@@ -1,0 +1,26 @@
+@mixin button-brand {
+  height: 47px;
+  background-color: #000000;
+  border-color: #000;
+  border-style: solid;
+  color: #fff;
+  font-size: 1.25em;
+  letter-spacing: 1px;
+  line-height: 1.6875;
+  padding: 0 50px;
+  @media (max-width: 374.98px) {
+    padding: 0 30px;
+  }
+
+  &:hover {
+    cursor: pointer; 
+    background-color: #fff;
+    border-color: #000;
+    color: #000;
+    transition-duration: 0.3s;
+  }
+  
+  &:focus {
+    outline: 0;
+  }
+}
