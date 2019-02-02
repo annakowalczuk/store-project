@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { Logo } from './Logo';
-import Cart from './Cart';
+import CartIcon from './CartIcon';
 
 import './Header.scss'; 
 import { Container, Row, Col } from 'reactstrap';
@@ -25,7 +25,7 @@ export const Header = props => {
             </nav>
           </Col>
           <Col md='12' lg='1'>
-            <Cart />
+            <CartIcon />
           </Col>
         </Row>
       </Container>

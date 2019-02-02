@@ -10,7 +10,7 @@ import { MainLayout } from '../MainLayout';
 import { NoMatch } from '../NoMatch';
 import { Terms } from '../Terms';
 import ProductPage from '../ProductPage/ProductPageContainer';
-import Cart from '../Cart';
+import Cart from '../Cart/CartContainer';
 import { fetchProducts } from '../Product/ProductActions.js';
 
 

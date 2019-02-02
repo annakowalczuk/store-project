@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { ProductPage } from './ProductPage';
+import { addToCart } from '../Cart/CartActions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -7,4 +8,10 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(ProductPage);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCartHandler: (id) => dispatch(addToCart(id)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductPage);

@@ -9,10 +9,12 @@
 
   .fa-shopping-cart {
     font-size: 1.75em;
+    color: #000;
     &:hover {
       transition-duration: 0.3s;
       font-size: 1.8125em;
       cursor: pointer;
+      color: #000;
     }
   }
 

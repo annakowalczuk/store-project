@@ -36,7 +36,7 @@ export class ProductPage extends Component {
               <h4 className='product-page-details-price'>${product.price}</h4>
               <p className='product-page-details-description'>{product.description}</p>
             </div>
-            <button className='button-add-to-cart'>Dodaj do koszyka</button>
+            <button className='button-add-to-cart' onClick={() => this.props.addToCartHandler(product._id)} >Dodaj do koszyka</button>
           </Col>
         </Row>
       </Container>
