@@ -1,4 +1,4 @@
-import data from '../../data/products.json';
+import data from '../../data/data.js';
 
 // Export Constants
 export const GET_PRODUCTS = 'GET_PRODUCTS';
@@ -43,26 +43,8 @@ export const goToPage = (id) => {
   };
 }
 
-export const fetchProducts = () => {
-  return dispatch => {
-    return new Promise((res, rej) => {
-      res(data);
-    }).then(data => {
-      dispatch(getProducts(data.products));
-    }).catch(err => {
-      console.log(err);
-    });
-  };
+export const fetchProducts = () => dispatch => {
+  data.receiveProducts(products => {
+    dispatch(getProducts(products.products))
+  })
 }
-
-// // this function would work if json is put in public directory
-// export const fetchProducts = () => {
-//   return dispatch => {
-//     fetch('/products.json')
-//     .then(response => response.json())
-//     .then(data => dispatch(getProducts(data.products)))
-//     .catch(err => {
-//       console.log(err);
-//     });
-//   };
-// }
