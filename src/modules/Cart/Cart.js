@@ -27,24 +27,30 @@ export const Cart = (props) => {
         const imgUrl = `/images/${addedItem.index}.jpg`;
 
         return (
-          <Row key={id} >
+          <Row key={id} className='cart-added-item' >
             <Col lg='2'>
-              <div className='cart-photo-product' style={{ backgroundImage: `url(${imgUrl})` }} >
+              <div className='cart-photo-product-wrapper'>
+                <div className='cart-photo-product' style={{ backgroundImage: `url(${imgUrl})` }} >
+                </div>
               </div>
             </Col>
             <Col lg='7'>
-              <h4>{addedItem.name}</h4>
-              <p>{addedItem.description}</p>
+              <div className='cart-added-item-info'>
+                <h4 className='cart-added-item-name'>{addedItem.name}</h4>
+                <p className='cart-added-item-description'>{addedItem.description}</p>
+              </div>
             </Col>
             <Col lg='1'>
-              <p>{addedItem.price}</p>
+              <p className='cart-added-item-price'>${addedItem.price}</p>
             </Col>
             <Col lg='2'>
-              <div onClick={() => props.removeItemFromCart(id)} >-</div>
-              <div>{props.cart[id]}</div>
-              <div onClick={() => props.addToCart(id)} >+</div>
-              <div>szt</div>
-              <div onClick={() => props.removeProductFromCart(id) } >usuń produkt</div>
+              <div className='cart-added-item-quantity'>
+                <div onClick={() => props.removeItemFromCart(id)} >-</div>
+                <div className='cart-added-item-quantity-number'>{props.cart[id]}</div>
+                <div onClick={() => props.addToCart(id)} >+</div>
+                <div className='cart-added-item-quantity-text'>szt</div>
+              </div>
+              <div className='cart-added-item-remove' onClick={() => props.removeProductFromCart(id) } >usuń produkt</div>
             </Col>
           </Row>
           );

@@ -17,13 +17,78 @@
   padding: 30px;
 }
 
-.cart-photo-product {
-  height: 268px;
-  max-width: 100%;
-  margin: 0 30px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+.cart-added-item {
+  letter-spacing: 1px;
+  line-height: 1.6875;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  .cart-photo-product-wrapper {
+    height: 227px;
+    max-width: 175px;
+    background-color: $color-brand-gray-light;
+    
+    .cart-photo-product {
+      min-height: 227px;
+      max-width: 100%;
+      margin: 0 30px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  .cart-added-item-info {
+    padding-left: 60px;
+    padding-right: 50px;
+  }
+
+  &-name {
+    font-size: 1.5em;
+    color: #000000;
+    text-transform: capitalize;
+    font-weight: 400;
+  }
+
+  &-description {
+    font-size: 1.125em;
+    color: #000000;
+  }
+
+  &-price {
+    font-size: 1.125em;
+    line-height: 59px;
+    text-align: center;
+    color: $color-brand-gray-dark;
+  }
+
+  &-quantity {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    font-size: 1.125em;
+
+    &-number {
+      background-color: $color-brand-gray-light;
+      margin-left: 9px;
+      margin-right: 9px;
+      width: 39px;
+      height: 59px;
+      line-height: 59px;
+      text-align: center;
+    }
+
+    &-text {
+      padding-left: 18px;
+    }
+  }
+
+  &-remove {
+    font-size: 0.875em;
+    color: #ff4444;
+    text-align: right;
+    padding-top: 15px;
+  }
 }
 
 .cart-checkout-menu {
