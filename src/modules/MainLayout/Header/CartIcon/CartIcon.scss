@@ -1,11 +1,12 @@
 @import '../../../../_variables';
 
 .cart-icon-container {
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   padding-top: 20px;
   padding-bottom: 20px;
-  max-width: 28px;
+  max-width: 33px;
 
   .fa-shopping-cart {
     font-size: 1.75em;
@@ -16,6 +17,24 @@
       cursor: pointer;
       color: #000;
     }
+  }
+
+  .itemsInCart {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    background-color: white;
+    border: {
+      width: 2px;
+      style: solid;
+      color: black;
+      radius: 50%;
+    }
+    color: #ff4444;
+    font-size: 0.75em;
+    text-align: center;
   }
 
   @media (min-width: 992px) {
