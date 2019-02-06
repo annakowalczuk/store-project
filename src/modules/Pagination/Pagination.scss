@@ -10,13 +10,20 @@
     margin: 0;
     padding: 0;
     text-align: right;
+
     li {
       display: inline-block;
-      padding-left: 26px;
+      padding-left: 13px;
+      padding-right: 13px;
+      text-align: center;
+      &.active {
+        background-color: $color-brand-gray-light;
+      }
       &:hover {
         cursor: pointer;
         color: #000;
       }
     }
+
   }
 }
