@@ -10,11 +10,13 @@
     margin: 0;
     padding: 0;
     text-align: right;
+    @media (max-width: 575.98px) {
+      text-align: center;
+    }
 
     li {
       display: inline-block;
-      padding-left: 13px;
-      padding-right: 13px;
+      min-width: 37px;
       text-align: center;
       &.active {
         background-color: $color-brand-gray-light;
@@ -22,8 +24,11 @@
       &:hover {
         cursor: pointer;
         color: #000;
-      }
+      } 
     }
 
+    .hidden {
+        visibility: hidden;
+    }
   }
 }

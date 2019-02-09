@@ -52,7 +52,9 @@ const Pagination = (props) => {
     return (
     <li
       key={number}
-      className='product-pagination-item'
+      className={ ((currentPage < 2 && type === 'left') || (currentPage >= totalPages && type === 'right'))
+        ? 'product-pagination-item hidden'
+        : 'product-pagination-item'}
       id={number}
       onClick={() => props.goToPage(number)}
     >
@@ -68,9 +70,9 @@ const Pagination = (props) => {
           <Col lg='6'></Col>
           <Col lg='6'>
             <ul>
-              {(currentPage >= 2) ? renderPaginationArrow(currentPage - 1, 'left') : null}
+              {renderPaginationArrow(currentPage - 1, 'left')}
               {renderPagination()}
-              {(currentPage < totalPages) ? renderPaginationArrow(currentPage + 1, 'right') : null}
+              {renderPaginationArrow(currentPage + 1, 'right')}
             </ul>
           </Col>
         </Row>

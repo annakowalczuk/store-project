@@ -33,6 +33,10 @@
       font-size: 1.5em;
       @include product-page-header;
       text-transform: capitalize;
+
+      @media (max-width: 991.98px) {
+        margin-top: 8px;
+      }
     }
 
     &-price {
@@ -51,5 +55,9 @@
 
   .button-add-to-cart {
     @include button-brand;
+  }
+
+  @media (max-width: 991.98px) {
+    padding-top: 51px;
   }
 }

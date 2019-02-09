@@ -3,7 +3,7 @@
 .section--footer .container .row {
   display: flex;
   align-items: center;
-  height: 116px;
+  min-height: 116px;
   
   .bottom-menu {
     display: flex;
@@ -31,6 +31,8 @@
 
     @media (max-width: 767.98px) {
       justify-content: flex-start;
+      margin-top: 25px;
+      margin-bottom: 25px;
     }
   }
 
@@ -41,6 +43,10 @@
       
       div {
         padding-left: 35px;
+
+        @media (max-width: 767.98px) {
+          padding-left: 20px;
+        }
       }
     }
   }

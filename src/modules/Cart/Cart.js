@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 import { Container, Row, Col } from 'reactstrap';
 import isEmpty from 'lodash/isEmpty';
 
@@ -28,29 +30,33 @@ export const Cart = (props) => {
 
         return (
           <Row key={id} className='cart-added-item' >
-            <Col lg='2'>
-              <div className='cart-photo-product-wrapper'>
-                <div className='cart-photo-product' style={{ backgroundImage: `url(${imgUrl})` }} >
+            <Col lg='2' xs='6'>
+              <Link to={`/productpage/${addedItem._id}`} >
+                <div className='cart-photo-product-wrapper'>
+                  <div className='cart-photo-product' style={{ backgroundImage: `url(${imgUrl})` }} >
+                  </div>
                 </div>
-              </div>
+              </Link>
             </Col>
-            <Col lg='7'>
+            <Col lg='7' className='info-wrapper'>
               <div className='cart-added-item-info'>
                 <h4 className='cart-added-item-name'>{addedItem.name}</h4>
-                <p className='cart-added-item-description'>{addedItem.description}</p>
+                <p className='cart-added-item-description'>{addedItem.description.slice(0, 150) + '...'}</p>
               </div>
             </Col>
-            <Col lg='1'>
-              <p className='cart-added-item-price'>${addedItem.price}</p>
-            </Col>
-            <Col lg='2'>
-              <div className='cart-added-item-quantity'>
-                <div onClick={() => props.removeItemFromCart(id)} >-</div>
-                <div className='cart-added-item-quantity-number'>{props.cart[id]}</div>
-                <div onClick={() => props.addToCart(id)} >+</div>
-                <div className='cart-added-item-quantity-text'>szt</div>
+            <Col xs='6' lg='3' className='price-quantity-remove-wrapper' >
+              <div className='cart-added-item-price'>
+                <p>${addedItem.price}</p>
               </div>
-              <div className='cart-added-item-remove' onClick={() => props.removeProductFromCart(id) } >usuń produkt</div>
+              <div>
+                <div className='cart-added-item-quantity'>
+                  <div onClick={() => props.removeItemFromCart(id)} >-</div>
+                  <div className='cart-added-item-quantity-number'>{props.cart[id]}</div>
+                  <div onClick={() => props.addToCart(id)} >+</div>
+                  <div className='cart-added-item-quantity-text'>szt</div>
+                </div>
+                <div className='cart-added-item-remove' onClick={() => props.removeProductFromCart(id) } >usuń produkt</div>
+              </div>
             </Col>
           </Row>
           );
