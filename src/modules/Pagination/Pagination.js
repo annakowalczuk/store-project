@@ -7,52 +7,57 @@ import './Pagination.scss';
 
 
 const Pagination = (props) => {
-  const {currentPage} = props;
+
+  const currentPage = Number(props.currentPage)
+  const productsPerPage = 6;
+  const totalPages = Math.ceil(props.products.length / productsPerPage);
   
   const renderPagination = () => {
-    const productsPerPage = 6;
-    const totalPages = Math.ceil(props.products.length / productsPerPage);
-    console.log(totalPages);
     let paginationItems = [];
     
-    let firstPaginationItem = Number(currentPage) - 2;
-    let lastPaginationItem = Number(currentPage) + 2;
+    const numberOfPaginationItems = 5;
+    let firstPaginationItem = currentPage - 2;
+    let lastPaginationItem = firstPaginationItem + numberOfPaginationItems - 1;
     
-    if (Number(currentPage) === 1) {
-      firstPaginationItem = Number(currentPage);
-      lastPaginationItem = Number(currentPage) + 4;
+    if (currentPage <= numberOfPaginationItems / 2) {
+      firstPaginationItem = 1;
+      lastPaginationItem = numberOfPaginationItems;
     }
-    if (Number(currentPage) === 2) {
-      firstPaginationItem = Number(currentPage) - 1;
-      lastPaginationItem = Number(currentPage) + 3;
-    }
-    if (Number(currentPage) === totalPages) {
-      firstPaginationItem = Number(currentPage) - 4;
-      lastPaginationItem = Number(currentPage);
-    }
-    if (Number(currentPage) === totalPages - 1) {
-      firstPaginationItem = Number(currentPage) - 3;
-      lastPaginationItem = Number(currentPage) + 1;
+    if (currentPage > totalPages - numberOfPaginationItems / 2) {
+      lastPaginationItem = totalPages;
+      firstPaginationItem = lastPaginationItem - numberOfPaginationItems + 1;
     }
 
     for (let i = firstPaginationItem; i <= lastPaginationItem; i++) {
       paginationItems.push(renderPaginationItem(i));
     }
-    return paginationItems;
-  }
 
-  const handleClick = (e) => {
-    props.goToPage(e.target.id);
+    return paginationItems;
   }
 
   const renderPaginationItem = (number) => {
     return (
     <li
       key={number}
-      className={ Number(currentPage) === number ? 'product-pagination-item active' : 'product-pagination-item' }
+      className={ currentPage === number ? 'product-pagination-item active' : 'product-pagination-item' }
       id={number}
-      onClick={handleClick}
+      onClick={() => props.goToPage(number)}
     >{number}</li>
+    );
+  }
+
+  const renderPaginationArrow = (number, type) => {
+    const left = 'fas fa-long-arrow-alt-left';
+    const right = 'fas fa-long-arrow-alt-right';
+    return (
+    <li
+      key={number}
+      className='product-pagination-item'
+      id={number}
+      onClick={() => props.goToPage(number)}
+    >
+    <i className={type === 'left' ? left : right}></i>
+    </li>
     );
   }
 
@@ -63,7 +68,9 @@ const Pagination = (props) => {
           <Col lg='6'></Col>
           <Col lg='6'>
             <ul>
+              {(currentPage >= 2) ? renderPaginationArrow(currentPage - 1, 'left') : null}
               {renderPagination()}
+              {(currentPage < totalPages) ? renderPaginationArrow(currentPage + 1, 'right') : null}
             </ul>
           </Col>
         </Row>
