@@ -13,7 +13,6 @@ import ProductPage from '../ProductPage/ProductPageContainer';
 import Cart from '../Cart/CartContainer';
 import { fetchProducts } from '../Product/ProductActions.js';
 
-
 class App extends Component {
   componentDidMount() {
     this.props.fetchProducts();
