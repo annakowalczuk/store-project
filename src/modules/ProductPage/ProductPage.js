@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { Container, Row, Col } from 'reactstrap';
 import './ProductPage.scss';
@@ -52,4 +53,9 @@ export class ProductPage extends Component {
       </div>
   );
 }
+}
+
+ProductPage.PropTypes = {
+  product: PropTypes.object,
+  addToCartHandler: PropTypes.func,
 }

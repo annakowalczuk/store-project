@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import './Product.scss';
 
@@ -65,5 +66,11 @@ class Product extends Component {
     );
   }
 }
+
+Product.PropTypes = {
+  products: PropTypes.array,
+  direction: PropTypes.string,
+  addToCart: PropTypes.func,
+};
 
 export default Product;

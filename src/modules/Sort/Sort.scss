@@ -19,8 +19,9 @@
   line-height: 2em;
   font-weight: 300;
   color: $color-brand-gray-dark;
-  ul {
+  &-item {
     padding: 0;
+    margin-bottom: 16px;
     &:hover {
       cursor: pointer;
       color: #000000;

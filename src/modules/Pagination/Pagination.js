@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { goToPage } from '../Product/ProductActions';
 
@@ -15,7 +16,7 @@ const Pagination = (props) => {
   const renderPagination = () => {
     let paginationItems = [];
     
-    const numberOfPaginationItems = 5;
+    const numberOfPaginationItems = 5; //the best visual result is when numberOfPaginationItems is odd
     let firstPaginationItem = currentPage - 2;
     let lastPaginationItem = firstPaginationItem + numberOfPaginationItems - 1;
     
@@ -80,6 +81,12 @@ const Pagination = (props) => {
     </div>
   );
 }
+
+Pagination.PropTypes = {
+  products: PropTypes.array,
+  currentPage: PropTypes.number,
+  goToPage: PropTypes.func,
+};
 
 const mapStateToProps = (state) => {
   return {

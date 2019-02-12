@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { sortBy } from '../Product/ProductActions.js';
 
@@ -9,15 +10,18 @@ const Sort = (props) => {
       <div>
         <h5 className='sort-header' >Sortuj:</h5>
         <div className='sort-list'>
-          <ul onClick={() => props.sortBy('name', 'asc')} >Nazwa A-Z</ul>
-          <ul onClick={() => props.sortBy('name', 'desc')} >Nazwa Z-A</ul>
-          <ul onClick={() => props.sortBy('price', 'asc')}>Cena rosnąco</ul>
-          <ul onClick={() => props.sortBy('price', 'desc')} >Cena malejąco</ul>
+          <div className='sort-list-item' onClick={() => props.sortBy('name', 'asc')} >Nazwa A-Z</div>
+          <div className='sort-list-item' onClick={() => props.sortBy('name', 'desc')} >Nazwa Z-A</div>
+          <div className='sort-list-item' onClick={() => props.sortBy('price', 'asc')}>Cena rosnąco</div>
+          <div className='sort-list-item' onClick={() => props.sortBy('price', 'desc')} >Cena malejąco</div>
         </div>
       </div>
     );
 }
 
+Sort.PropTypes = {
+  sortBy: PropTypes.func,
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {

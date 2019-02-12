@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import Product from '../Product/ProductContainer';
 
 import { Container, Row, Col } from 'reactstrap';
@@ -31,3 +32,9 @@ export const Products = (props) => {
       </div>
   );
 }
+
+Products.PropTypes = {
+  products: PropTypes.array,
+  direction: PropTypes.string,
+  currentPage: PropTypes.number,
+};

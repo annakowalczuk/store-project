@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Sort from '../Sort';
 import ProductsContainer from '../Products/ProductsContainer';
@@ -28,8 +29,14 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return state;
+Home.PropTypes = {
+  products: PropTypes.object,
+};
+
+const mapStateToProps = (state) => {
+  return {
+    products: state.products,
+  };
 };
 
 export default connect(mapStateToProps)(Home);

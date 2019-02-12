@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
 import { Container, Row, Col } from 'reactstrap';
@@ -112,3 +113,12 @@ export const Cart = (props) => {
     </div>
   );
 }
+
+Cart.PropTypes={
+  products: PropTypes.array,
+  cart: PropTypes.object,
+  addToCart: PropTypes.func,
+  removeItemFromCart: PropTypes.func,
+  removeProductFromCart: PropTypes.func,
+  checkoutRequest: PropTypes.func,
+};

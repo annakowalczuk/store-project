@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 // import './App.css';
 import { connect } from 'react-redux';
@@ -36,8 +37,8 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return state;
+App.PropTypes = {
+  fetchProducts: PropTypes.func,
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -46,4 +47,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './CartIcon.scss';
@@ -13,10 +14,14 @@ const CartIcon = (props) => {
 
   return (
     <div className='cart-icon-container'>
-    <Link to="/cart" title='cart' ><i className="fas fa-shopping-cart"></i></Link>
+    <Link to='/cart' title='cart' ><i className='fas fa-shopping-cart'></i></Link>
     { props.itemsInCart === 0 ? null : renderItemsInCart() }
     </div>
     );
+};
+
+CartIcon.PropTypes = {
+  itemsInCart: PropTypes.number,
 };
 
 const mapStateToProps = (state) => {
