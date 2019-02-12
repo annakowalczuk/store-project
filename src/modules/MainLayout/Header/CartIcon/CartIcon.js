@@ -13,7 +13,7 @@ const CartIcon = (props) => {
 
   return (
     <div className='cart-icon-container'>
-    <Link to="/cart"><i className="fas fa-shopping-cart"></i></Link>
+    <Link to="/cart" title='cart' ><i className="fas fa-shopping-cart"></i></Link>
     { props.itemsInCart === 0 ? null : renderItemsInCart() }
     </div>
     );

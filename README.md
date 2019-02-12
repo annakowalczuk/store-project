@@ -1,3 +1,26 @@
+# Demo
+
+See demo version [here](https://store-project-c51d8.firebaseapp.com/)
+
+# Project description
+
+This is an online store project built with React and Redux. Its purpose was to improve coding skills.
+
+## Installation
+
+Clone or download repository to your development environment:
+
+```sh
+$ git clone git@github.com:annakowalczuk/store-project.git
+```
+
+To install dependencies run:
+
+```sh
+$ cd store
+$ npm install
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

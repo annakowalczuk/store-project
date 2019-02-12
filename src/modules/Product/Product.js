@@ -46,7 +46,7 @@ class Product extends Component {
           </div>
 
           <Link to={`/productpage/${product._id}`} >
-            <div className='photo-product' style={{ backgroundImage: `url(${imgUrl})` }} >
+            <div className='photo-product' style={{ backgroundImage: `url(${imgUrl})` }} title={product.name} >
             </div>
           </Link>
 

@@ -8,7 +8,7 @@ export class MainLayout extends React.Component {
   render() {
     return (
       <div>
-        <DevTools />
+        {(process.env.NODE_ENV === 'production') ? null : <DevTools />}
         <Header />
         {this.props.children}
         <Footer />
