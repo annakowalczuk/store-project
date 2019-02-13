@@ -91,6 +91,12 @@
     &-text {
       padding-left: 18px;
     }
+
+    &-plus, &-minus {
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 
   &-remove {
@@ -98,6 +104,10 @@
     color: #ff4444;
     text-align: right;
     padding-top: 15px;
+    
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .info-wrapper {

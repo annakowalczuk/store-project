@@ -33,8 +33,8 @@ export const Products = (props) => {
   );
 }
 
-Products.PropTypes = {
+Products.propTypes = {
   products: PropTypes.array,
-  direction: PropTypes.string,
+  direction: PropTypes.object,
   currentPage: PropTypes.number,
 };

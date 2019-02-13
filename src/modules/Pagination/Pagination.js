@@ -82,7 +82,7 @@ const Pagination = (props) => {
   );
 }
 
-Pagination.PropTypes = {
+Pagination.propTypes = {
   products: PropTypes.array,
   currentPage: PropTypes.number,
   goToPage: PropTypes.func,

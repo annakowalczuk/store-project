@@ -19,7 +19,7 @@ const Sort = (props) => {
     );
 }
 
-Sort.PropTypes = {
+Sort.propTypes = {
   sortBy: PropTypes.func,
 };
 

@@ -29,7 +29,7 @@ class Home extends Component {
   }
 }
 
-Home.PropTypes = {
+Home.propTypes = {
   products: PropTypes.object,
 };
 

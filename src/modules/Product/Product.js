@@ -67,9 +67,9 @@ class Product extends Component {
   }
 }
 
-Product.PropTypes = {
+Product.propTypes = {
   products: PropTypes.array,
-  direction: PropTypes.string,
+  direction: PropTypes.object,
   addToCart: PropTypes.func,
 };
 

@@ -20,7 +20,7 @@ const CartIcon = (props) => {
     );
 };
 
-CartIcon.PropTypes = {
+CartIcon.propTypes = {
   itemsInCart: PropTypes.number,
 };
 

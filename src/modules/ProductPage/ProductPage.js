@@ -5,15 +5,10 @@ import { Container, Row, Col } from 'reactstrap';
 import './ProductPage.scss';
 
 export class ProductPage extends Component {
-  constructor(props) {
-    super(props);
-    this.props = props;
-  }
-
-  renderLoading = () => {
+  renderError = () => {
     return (
         <Row>
-          <Col lg='12'>...loading</Col>
+          <Col lg='12'>Nie ma takiego produktu.</Col>
         </Row>
     );
   }
@@ -48,14 +43,14 @@ export class ProductPage extends Component {
     return (
       <div className='section--product-page'>
         <Container>
-            { !this.props.product ? this.renderLoading() : this.renderDetails() }
+            { !this.props.product ? this.renderError() : this.renderDetails() }
         </Container>
       </div>
   );
 }
 }
 
-ProductPage.PropTypes = {
+ProductPage.propTypes = {
   product: PropTypes.object,
   addToCartHandler: PropTypes.func,
 }

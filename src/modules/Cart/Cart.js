@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
+import CartSubmit from './CartSubmit/CartSubmit';
+import CartIsEmpty from './CartIsEmpty';
 
 import { Container, Row, Col } from 'reactstrap';
 import isEmpty from 'lodash/isEmpty';
@@ -8,25 +10,15 @@ import isEmpty from 'lodash/isEmpty';
 import './Cart.scss';
 
 
-export const Cart = (props) => {
+export class Cart extends Component {
 
-  const renderCartIsEmpty = () => {
-    return (
-      <Row>
-        <Col lg='12'>
-          <p className='cart-empty' >Your cart is empty.</p>
-        </Col>
-      </Row>
-    );
-  }
-
-  const renderAddedItems = () => {
-    const addedItems = Object.keys(props.cart);
+  renderAddedItems = () => {
+    const addedItems = Object.keys(this.props.cart);
 
     return (
       <div>
       {addedItems.map(id => {
-        const addedItem = props.products.find(product => product._id === id);
+        const addedItem = this.props.products.find(product => product._id === id);
         const imgUrl = `/images/${addedItem.index}.jpg`;
 
         return (
@@ -51,12 +43,12 @@ export const Cart = (props) => {
               </div>
               <div>
                 <div className='cart-added-item-quantity'>
-                  <div onClick={() => props.removeItemFromCart(id)} >-</div>
-                  <div className='cart-added-item-quantity-number'>{props.cart[id]}</div>
-                  <div onClick={() => props.addToCart(id)} >+</div>
+                  <div className='cart-added-item-quantity-minus' onClick={() => this.props.removeItemFromCart(id)} >-</div>
+                  <div className='cart-added-item-quantity-number'>{this.props.cart[id]}</div>
+                  <div className='cart-added-item-quantity-plus' onClick={() => this.props.addToCart(id)} >+</div>
                   <div className='cart-added-item-quantity-text'>szt</div>
                 </div>
-                <div className='cart-added-item-remove' onClick={() => props.removeProductFromCart(id) } >usuń produkt</div>
+                <div className='cart-added-item-remove' onClick={() => this.props.removeProductFromCart(id) } >usuń produkt</div>
               </div>
             </Col>
           </Row>
@@ -67,11 +59,11 @@ export const Cart = (props) => {
     );
   }
 
-  const renderTotalPrice = () => {
+  renderTotalPrice = () => {
     let totalPrice = 0;
-    Object.keys(props.cart).map(id => {
-      const addedItem = props.products.find(product => product._id === id);
-      return totalPrice += addedItem.price * props.cart[id];
+    Object.keys(this.props.cart).map(id => {
+      const addedItem = this.props.products.find(product => product._id === id);
+      return totalPrice += addedItem.price * this.props.cart[id];
     })
 
     return (
@@ -79,42 +71,49 @@ export const Cart = (props) => {
     );
   }
 
-  return (
-    <div className='section--cart'>
-      <Container>
-        <Row>
-          <Col lg='12' className='cart-header'>
-            <h2>Koszyk</h2>
-          </Col>
-        </Row>
-        { isEmpty(props.cart) ? renderCartIsEmpty() : renderAddedItems() }
+  render() {
+    return (
+      <div className='section--cart'>
+        <Container>
+          <Row>
+            <Col lg='12' className='cart-header'>
+              <h2>Koszyk</h2>
+            </Col>
+          </Row>
+          { isEmpty(this.props.cart) ?  <CartIsEmpty /> : this.renderAddedItems() }
 
-        <Row className='cart-checkout-menu'>
-          <Col lg='3'>
-            <div className='discount-code'>
-              <input type="text"
-                autoFocus
-                defaultValue='kod rabatowy' 
-              />
-            </div>
-          </Col>
-          <Col lg='3' className='total-price'>
-            <h6>Total: </h6>
-            {renderTotalPrice()}
-          </Col>
-          <Col lg='3'>
-            <button 
-              className={`button-checkout${isEmpty(props.cart) ? ' disabled' : ''}`}
-              onClick={() => isEmpty(props.cart) ? null : props.checkoutRequest()} 
-            >Zapłać</button>
-          </Col>
-        </Row>
-      </Container>
-    </div>
-  );
+          <Row className='cart-checkout-menu'>
+            <Col lg='3'>
+              <div className='discount-code'>
+                <input type="text"
+                  autoFocus
+                  defaultValue='kod rabatowy' 
+                />
+              </div>
+            </Col>
+            <Col lg='3' className='total-price'>
+              <h6>Total: </h6>
+              {this.renderTotalPrice()}
+            </Col>
+            <Col lg='3'>
+            {isEmpty(this.props.cart) ?
+              <button className='button-checkout disabled'>Zapłać</button> :
+              <Link to='/checkout' title='checkout' >
+                <button 
+                  className={`button-checkout${isEmpty(this.props.cart) ? ' disabled' : ''}`}
+                  onClick={() => isEmpty(this.props.cart) ? null : <CartSubmit/>} 
+                >Zapłać</button>
+              </Link>
+            }
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    );
+  }
 }
 
-Cart.PropTypes={
+Cart.propTypes={
   products: PropTypes.array,
   cart: PropTypes.object,
   addToCart: PropTypes.func,

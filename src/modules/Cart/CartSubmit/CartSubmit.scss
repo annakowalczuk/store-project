@@ -1,0 +1,43 @@
+@import '../../../_variables';
+@import '../../../utils/_button';
+
+.section--cart-submit {
+  padding-top: 78px;
+}
+
+.cart-header > h2 {
+  font-size: 1.75em;
+  letter-spacing: 2px;
+  line-height: 1.6875;
+  font-weight: 400;
+  color: #000;
+}
+
+.checkout-item-photo {
+  height: 100%;
+  max-height: 50px;
+  width: auto;
+  padding: 5px;
+  background-color: $color-brand-gray-light;
+}
+
+.table-header {
+  font-size: 1.125em;
+  font-weight: 400;
+  letter-spacing: 0.0625em;
+  line-height: 1.6875;
+  padding: 31px;
+}
+
+.button-cart-checkout {
+  @include button-brand;
+  max-width: 100%;
+  width: 259px;
+  padding: 0;
+  &.disabled {
+    background-color: $color-brand-gray-light;
+    border-color: $color-brand-gray-light;
+    color: $color-brand-gray;
+    cursor: initial;
+  }
+}

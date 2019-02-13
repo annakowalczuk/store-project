@@ -12,6 +12,7 @@ import { NoMatch } from '../NoMatch';
 import { Terms } from '../Terms';
 import ProductPage from '../ProductPage/ProductPageContainer';
 import Cart from '../Cart/CartContainer';
+import CartSubmit from '../Cart/CartSubmit/CartSubmit';
 import { fetchProducts } from '../Product/ProductActions.js';
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
             <Route exact path={'/faq'} component={Faq} />
             <Route exact path={'/terms'} component={Terms} />
             <Route exact path={'/cart'} component={Cart} />
+            <Route exact path={'/checkout'} component={CartSubmit} />
             <Route exact path={'/productpage/:id'} component={ProductPage} />
             <Route component={NoMatch} />
           </Switch>
@@ -37,7 +39,7 @@ class App extends Component {
   }
 }
 
-App.PropTypes = {
+App.propTypes = {
   fetchProducts: PropTypes.func,
 };
 
