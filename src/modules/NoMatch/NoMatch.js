@@ -1,5 +1,14 @@
 import React from 'react';
+import { Container, Row, Col } from 'reactstrap';
 
 export const NoMatch = (props) => {
-  return <div>Ups, nie znaleziono strony</div>;
+  return (
+    <Container>
+      <Row>
+        <Col lg='12'>
+          <div>Ups, nie znaleziono strony</div>
+        </Col>
+      </Row>
+    </Container>
+  );
 }

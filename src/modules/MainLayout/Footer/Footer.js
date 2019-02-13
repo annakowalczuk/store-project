@@ -17,7 +17,7 @@ export const Footer = props => {
               <NavLink exact to='/' activeClassName='active'>Home</NavLink>
               <NavLink exact to='/faq' activeClassName='active'>FAQ</NavLink>
               <NavLink exact to='/terms' activeClassName='active'>Regulamin</NavLink>
-              <NavLink exact to='/contact' activeClassName='active'>Contact</NavLink>
+              <NavLink exact to='/contact' activeClassName='active'>Kontakt</NavLink>
             </nav>
           </Col>
         </Row>
