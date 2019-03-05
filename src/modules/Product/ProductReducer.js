@@ -1,4 +1,4 @@
-import { GET_PRODUCTS, SORT_BY_NAME_ASC, SORT_BY_PRICE, GO_TO_PAGE } from './ProductActions';
+import { GET_PRODUCTS, SORT_BY_NAME, SORT_BY_PRICE, GO_TO_PAGE } from './ProductActions';
 
 const initialState = {
   productsList: [],
@@ -14,7 +14,7 @@ export default function products(state = initialState, action) {
     case GET_PRODUCTS:
       return { ...state, productsList: action.productsData };
 
-    case SORT_BY_NAME_ASC: 
+    case SORT_BY_NAME: 
       return {
         ...state,
         productsList: state.productsList.sort((a, b) => {
